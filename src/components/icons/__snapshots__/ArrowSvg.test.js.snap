@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArrowSvg component is created with red color and up true 1`] = `
+<i
+  className="arrow up"
+  style={
+    Object {
+      "color": "red",
+    }
+  }
+>
+  <svg
+    fill="red"
+    height="34"
+    viewBox="0 0 1024 1024"
+    width="34"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M317.256 354.744l-90.512 90.512 285.256 285.254 285.254-285.256-90.508-90.508-194.746 194.744z"
+    />
+  </svg>
+</i>
+`;
+
+exports[`ArrowSvg component render correctly with default props 1`] = `
+<i
+  className="arrow down"
+  style={
+    Object {
+      "color": undefined,
+    }
+  }
+>
+  <svg
+    fill="currentColor"
+    height="34"
+    viewBox="0 0 1024 1024"
+    width="34"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M317.256 354.744l-90.512 90.512 285.256 285.254 285.254-285.256-90.508-90.508-194.746 194.744z"
+    />
+  </svg>
+</i>
+`;

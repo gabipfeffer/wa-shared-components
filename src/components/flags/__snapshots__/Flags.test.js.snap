@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Flags component render correctly with default props 1`] = `
+<span
+  className="container"
+>
+  <span />
+  <i
+    className="icon icon-flag-"
+  />
+</span>
+`;

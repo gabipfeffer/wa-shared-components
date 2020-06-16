@@ -1,0 +1,25 @@
+@import './colours.pcss';
+@import './fonts.pcss';
+@import './layout.pcss';
+
+.table {
+    background-color: var(--table-background-colour);
+    color: var(--table-foreground-colour);
+    margin-top: var(--page-item-margin);
+    width: 100%;
+}
+
+.cell {
+    color: var(--table-body-foreground-colour);
+    font-size: var(--table-body-font-size);
+    padding: var(--table-body-padding);
+    vertical-align: middle;
+}
+
+.column-header {
+    background-color: var(--table-header-background-colour);
+    font-size: var(--table-header-font-size);
+    font-weight: var(--font-bold);
+    padding: var(--table-header-padding);
+    text-align: left;
+}

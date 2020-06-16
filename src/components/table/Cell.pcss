@@ -1,0 +1,35 @@
+.cell {
+  box-sizing: border-box;
+  padding: 0.8em 0.7em;
+  text-align: left;
+}
+
+.mobile {
+  display: table-cell;
+}
+
+.tablet {
+  display: table-cell;
+}
+
+.desktop {
+  display: table-cell;
+}
+
+@media only screen and (max-width: 600px) {
+  .mobile {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 865px) and (min-width: 600px) {
+  .tablet {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 866px) {
+  .desktop {
+    display: none !important;
+  }
+}

@@ -1,0 +1,16 @@
+.container {
+  border: none;
+
+  &.hide {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+}
+
+.row {
+  composes: rowContainer from './Table.pcss';
+
+  font-size: 0.9em;
+  background-color: #ededed;
+}

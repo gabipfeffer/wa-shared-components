@@ -1,0 +1,17 @@
+.arrow {
+  display: block;
+  position: absolute;
+  right: 3px;
+  top: 50%;
+  margin-top: calc(35px / -2);
+  transition: transform .18s ease-in-out;
+  vertical-align: -.125em;
+
+  &.up {
+    transform: rotate(180deg);
+  }
+
+  &.down {
+    transform: rotate(0deg);
+  }
+}
