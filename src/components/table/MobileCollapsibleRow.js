@@ -8,20 +8,7 @@ import CloseIcon from "../icons/XIcon";
 import s from "./MobileCollapsibleRow.pcss";
 import Row from "./Row";
 
-type Props = {
-  row: Object,
-  rowClickHandler: function,
-  isMobile: boolean,
-  className: string | Object,
-  mobileCollapsibleContent: string | Object,
-};
-
-function MobileCollapsibleRow({
-  row,
-  rowClickHandler,
-  isMobile,
-  className,
-}: Props) {
+function MobileCollapsibleRow({ row, rowClickHandler, isMobile, className }) {
   const [isShowing, setIsShowing] = useState(false);
   const hasRowLink = !!rowClickHandler && !isMobile;
   const handleRowLink = useCallback(

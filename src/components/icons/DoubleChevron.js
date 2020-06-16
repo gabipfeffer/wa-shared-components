@@ -3,18 +3,13 @@ import React from 'react';
 
 import s from './DoubleChevron.pcss';
 
-type Props = {
-  color: string,
-  id: string,
-  up: boolean
-};
 
 const first =
   'M8.9,0L8.9,0c0,0-0.3,0.3-0.8,0.8c0.7,0.7,1.8,1.8,3.1,3L15,7.6l-3.8,3.8l-3.1,3l0.8,0.8l3.8-3.8l3.8-3.8l-3.8-3.8C10.6,1.7,9,0,8.9,0z';
 const second =
   'M0.8,0L0.8,0c0,0-0.3,0.3-0.8,0.8c0.7,0.7,1.8,1.8,3.1,3l3.8,3.8l-3.8,3.8l-3.1,3l0.8,0.8l3.8-3.8l3.8-3.8L4.6,3.8C2.4,1.7,0.8,0,0.8,0z';
 
-function DoubleChevron({ color, size, id }: Props) {
+function DoubleChevron({ color, size, id }) {
   return (
     <i className={s.container} style={{ color }} id={id}>
       <svg

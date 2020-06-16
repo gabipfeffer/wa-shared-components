@@ -1,2 +1,3 @@
 import Button from "./components/Button";
-export { Button };
+import MedalTable from "./components/MedalTable";
+export { Button, MedalTable };

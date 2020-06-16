@@ -3,17 +3,11 @@ import React from 'react';
 
 import s from './DoubleChevron.pcss';
 
-type Props = {
-  color: string,
-  size: number,
-  scale: string,
-  id: string
-};
 
 const closeIcon =
   'M512 439.603l-362.035-362.035-72.397 72.397 362.035 362.035-362.035 362.035 72.397 72.397 362.035-362.035 362.035 362.035 72.397-72.397-362.035-362.035 362.035-362.035-72.397-72.397-362.035 362.035z';
 
-function CloseIcon({ color, size, id, scale }: Props) {
+function CloseIcon({ color, size, id, scale }) {
   return (
     <i className={s.container} style={{ color, width: size, height: size }} id={id}>
       <svg

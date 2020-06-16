@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import cs from 'classnames';
 import isArrayWithData from '../../utils/isArrayWithData';
@@ -6,25 +5,7 @@ import s from './TableBody.pcss';
 import MobileCollapsibleRow from './MobileCollapsibleRow';
 import Row from './Row';
 
-type Props = {
-  rows: Array<?Content>,
-  isMobile: boolean,
-  rowClickHandler?: Function,
-  className: {
-    row: string,
-    container: string
-  }
-};
-type ObjContent = {
-  value: string | number | Object,
-  className: string,
-  hide: Array<'mobile' | 'tablet' | 'desktop'>,
-  style: Object,
-  mobileCollapsibleContent: any
-};
-type Content = string | number | ObjContent;
-
-export function TableBody({ rows, className, rowClickHandler, isMobile }: Props) {
+export function TableBody({ rows, className, rowClickHandler, isMobile }) {
 
   return (
     <tbody className={className.container}>

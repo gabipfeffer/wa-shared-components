@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import cs from 'classnames';
 
@@ -6,23 +5,7 @@ import Cell from './Cell';
 
 import styles from './TableHeader.pcss';
 
-type Props = {
-  rows: Array<?Content>,
-  className: {
-    container: string,
-    row: string
-  },
-  hide: boolean
-};
-type ObjContent = {
-  value: string | number | Object,
-  className: string,
-  hide?: 'mobile' | 'tablet' | 'desktop',
-  style?: Object
-};
-type Content = string | number | ObjContent;
-
-function TableHeader({ rows, hide, className: { row, container } }: Props) {
+function TableHeader({ rows, hide, className: { row, container } }) {
   return (
     <thead className={cs(styles.container, container, { hide: hide })}>
       <tr className={cs(styles.row, row)}>

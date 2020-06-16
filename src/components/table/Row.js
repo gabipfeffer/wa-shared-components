@@ -8,14 +8,7 @@ import Cell from './Cell';
 
 import s from './Row.pcss';
 
-type Props = {
-  row: Object,
-  rowClickHandler: function,
-  isMobile: boolean,
-  className: string | Object
-}
-
-function Row({ row, rowClickHandler, isMobile, className }: Props) {
+function Row({ row, rowClickHandler, isMobile, className }) {
   return (
     <>
       <tr

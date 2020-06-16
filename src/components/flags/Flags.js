@@ -4,14 +4,7 @@ import cs from 'classnames';
 import flagStyles from './flagStyles.pcss';
 import s from './Flags.pcss';
 
-type Props = {
-  flagName: string,
-  column: boolean,
-  hideText: boolean,
-  withTitle?: string
-};
-
-function Flags({ flagName, column, withTitle, hideText }: Props) {
+function Flags({ flagName, column, withTitle, hideText }) {
   if (withTitle) {
     return (
       <div>

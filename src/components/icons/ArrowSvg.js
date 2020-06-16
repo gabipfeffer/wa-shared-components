@@ -4,16 +4,10 @@ import cs from 'classnames';
 
 import s from './Arrow.pcss';
 
-type Props = {
-  color: string,
-  id: string,
-  up: boolean
-};
-
 const arrowPath =
   'M317.256 354.744l-90.512 90.512 285.256 285.254 285.254-285.256-90.508-90.508-194.746 194.744z';
 
-export default function ArrowSvg({ color, up, id, classNames }: Props) {
+export default function ArrowSvg({ color, up, id, classNames }) {
   return (
     <i
       className={cs(s.arrow, { [s.up]: up, [s.down]: !up, classNames: classNames })}

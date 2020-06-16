@@ -1,27 +1,22 @@
 // @flow
-import React from 'react';
-import cs from 'classnames';
+import React from "react";
+import cs from "classnames";
 
-import styles from './Cell.pcss';
-
-type Props = {
-  className: string,
-  hide: Array<'mobile' | 'tablet' | 'desktop'>,
-  children: any,
-  tag: 'th' | 'td'
-};
+import styles from "./Cell.pcss";
 
 const getHideViews = (hide) =>
-  Array.isArray(hide) ? hide.reduce((acc, item) => ({ ...acc, [item]: true }), {}) : {};
+  Array.isArray(hide)
+    ? hide.reduce((acc, item) => ({ ...acc, [item]: true }), {})
+    : {};
 
-function Cell({ tag, children, className, hide, ...rest }: Props) {
+function Cell({ tag, children, className, hide, ...rest }) {
   const { mobile, tablet, desktop } = getHideViews(hide);
   const cssStyles = cs(styles.cell, className, {
     [styles.mobile]: mobile,
     [styles.tablet]: tablet,
-    [styles.desktop]: desktop
+    [styles.desktop]: desktop,
   });
-  return tag === 'th' ? (
+  return tag === "th" ? (
     <th className={cssStyles} {...rest}>
       {children}
     </th>
@@ -30,12 +25,11 @@ function Cell({ tag, children, className, hide, ...rest }: Props) {
       {children}
     </td>
   );
-
 }
 
 Cell.defaultProps = {
-  tag: 'td',
-  className: ''
+  tag: "td",
+  className: "",
 };
 
 export default Cell;
