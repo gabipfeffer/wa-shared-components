@@ -1,5 +1,5 @@
 import React from "react";
-import { isEmpty, pathOr } from "ramda";
+import { isEmpty } from "ramda";
 
 import Flags from "../flags";
 import Table, { Header, Body } from "../table";
@@ -46,7 +46,8 @@ export function MedalTable({ data }) {
     onClick();
   }
 
-  // if (isEmpty(data)) return null;
+  if (isEmpty(data)) return null;
+  
   return (
     <section style={{ marginBottom: 1 }}>
       <Table className={s.medalTable}>
