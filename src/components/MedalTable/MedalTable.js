@@ -11,12 +11,13 @@ import {
   silverMedalStyle,
   bronzeMedalStyle,
   natStyle,
+  titleStyle
 } from "./MedalStyles";
 
 const HEADERS = [
-  { value: "Rank" },
-  { value: "Nat" },
-  { value: "Country" },
+  { value: "Rank", style: titleStyle  },
+  { value: "Nat", style: titleStyle  },
+  { value: "Country", style: titleStyle  },
   { value: "Gold", style: medalTitleStyle },
   { value: "Silver", style: medalTitleStyle },
   { value: "Bronze", style: medalTitleStyle },
