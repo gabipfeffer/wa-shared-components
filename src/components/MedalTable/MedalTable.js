@@ -1,10 +1,10 @@
-import React, { useState, useCallback, useMemo  } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import { isEmpty } from "ramda";
 
 import Flags from "../flags";
-import OpenModal from '../modal/OpenModal';
+import OpenModal from "../modal/OpenModal";
 import Table, { Header, Body } from "../table";
-import { useModal } from 'react-modal-hook';
+import { useModal } from "react-modal-hook";
 import s from "./MedalTable.pcss";
 import {
   medalStyle,
@@ -15,7 +15,7 @@ import {
   natStyle,
   titleStyle,
 } from "./MedalStyles";
-import MedalTableDetails from '../MedalTableDetails';
+import MedalTableDetails from "../MedalTableDetails";
 
 const HEADERS = [
   { value: "Rank", style: titleStyle },
@@ -27,38 +27,41 @@ const HEADERS = [
   { value: "Total", hide: ["mobile"], style: medalTitleStyle },
 ];
 
-const useModalWithData = (modalFactory) => {
-  const [modalData, setModalData] = useState(undefined);
-  const modalComponent = useMemo(() => modalFactory(modalData), [modalData]);
-  const [_showModal, hideModal] = useModal(modalComponent, [modalData]);
-
-  const showModal = useCallback((data) => {
-    setModalData(data);
-    _showModal();
-  });
-
-  return [showModal, hideModal];
-};
-
 export function MedalTable({ data, match }) {
+  const useModalWithData = (modalFactory) => {
+    const [modalData, setModalData] = useState(undefined);
+    const modalComponent = useMemo(() => modalFactory(modalData), [modalData]);
+    const [_showModal, hideModal] = useModal(modalComponent, [modalData]);
+
+    const showModal = useCallback((data) => {
+      setModalData(data);
+      _showModal();
+    });
+
+    return [showModal, hideModal];
+  };
+
   const [showModal, hideModal] = useModalWithData(
     ({ id, countryName, flag } = {}) => () => (
       <OpenModal
         title={<Flags withTitle={countryName} flagName={flag} />}
         customWidth={500}
-        hideModal={hideModal}>
-        {match && <Query query={GET_MEDALS_DETAILS} variables={{ medalTableId: id }}>
-          {({ loading, error, data }) => {
-            if (error){
-              console.error(error);
-              return null;
-            }
-            const getMedalDetails = pathOr([], ['getMedalDetails'], data);
+        hideModal={hideModal}
+      >
+        {match && (
+          <Query query={GET_MEDALS_DETAILS} variables={{ medalTableId: id }}>
+            {({ loading, error, data }) => {
+              if (error) {
+                console.error(error);
+                return null;
+              }
+              const getMedalDetails = pathOr([], ["getMedalDetails"], data);
 
-            if (isEmpty(getMedalDetails)) return null;
-            return <MedalTableDetails data={getMedalDetails} match={match} />;
-          }}
-        </Query>}
+              if (isEmpty(getMedalDetails)) return null;
+              return <MedalTableDetails data={getMedalDetails} match={match} />;
+            }}
+          </Query>
+        )}
       </OpenModal>
     )
   );
