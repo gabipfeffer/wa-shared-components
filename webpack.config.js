@@ -56,6 +56,14 @@ module.exports = {
         ],
         include: path.resolve(__dirname, "./src"),
       },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
+      },
     ],
   },
 };
