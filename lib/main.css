@@ -1762,7 +1762,8 @@
 }
 
 .src-components-flags-__Flags__container--2Dx3E {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   width: 60px;
   vertical-align: middle;
 }
@@ -1915,6 +1916,18 @@
     background: #CFC2E5;
     background: #CFC2E5;
   }
+.src-components-table-__Table__medalTable--1Cq1o thead tr {
+    background: #1E1E1E;
+    background: #1E1E1E;
+    color: white;
+  }
+.src-components-table-__Table__medalTable--1Cq1o tbody tr {
+      color: #ffffff;
+      color: #ffffff;
+      background-color: rgba(38, 38, 38, .9);
+      border-bottom: 1px solid #1E1E1E;
+      border-bottom: 1px solid #1E1E1E;
+    }
 
 :root {
     /* To keep */
