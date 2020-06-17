@@ -4,15 +4,23 @@ import { isEmpty } from "ramda";
 import Flags from "../flags";
 import Table, { Header, Body } from "../table";
 import s from "./MedalTable.pcss";
+import {
+  medalStyle,
+  medalTitleStyle,
+  goldMedalStyle,
+  silverMedalStyle,
+  bronzeMedalStyle,
+  natStyle,
+} from "./MedalStyles";
 
 const HEADERS = [
   { value: "Rank" },
   { value: "Nat" },
   { value: "Country" },
-  { value: "Gold" },
-  { value: "Silver" },
-  { value: "Bronze" },
-  { value: "Total", hide: ["mobile"] },
+  { value: "Gold", style: medalTitleStyle },
+  { value: "Silver", style: medalTitleStyle },
+  { value: "Bronze", style: medalTitleStyle },
+  { value: "Total", hide: ["mobile"], style: medalTitleStyle },
 ];
 
 export function MedalTable({ data }) {
@@ -30,13 +38,23 @@ export function MedalTable({ data }) {
           { key: `${key}-medalRank`, value: col.medalRank },
           {
             key: `${key}-countryCode`,
-            value: <Flags column flagName={col.countryCode} />,
+            value: <Flags flagName={col.countryCode} />,
+            style: natStyle,
           },
           { key: `${key}-countryName`, value: col.Country.CountryName },
-          { key: `${key}-gold`, value: col.gold },
-          { key: `${key}-silver`, value: col.silver },
-          { key: `${key}-bronze`, value: col.bronze },
-          { key: `${key}-total`, value: col.total, hide: ["mobile"] },
+          {
+            key: `${key}-gold`,
+            value: col.gold,
+            style: goldMedalStyle,
+          },
+          { key: `${key}-silver`, value: col.silver, style: silverMedalStyle },
+          { key: `${key}-bronze`, value: col.bronze, style: bronzeMedalStyle },
+          {
+            key: `${key}-total`,
+            value: col.total,
+            hide: ["mobile"],
+            style: medalStyle,
+          },
         ],
       };
     });
@@ -47,10 +65,10 @@ export function MedalTable({ data }) {
   }
 
   if (isEmpty(data)) return null;
-  
+
   return (
     <section style={{ marginBottom: 1 }}>
-      <Table className={s.medalTable}>
+      <Table className={s.medalTable} theme={"medalTable"}>
         <Header rows={HEADERS} />
         <Body rows={transform(data)} rowClickHandler={rowClickHandler} />
       </Table>
