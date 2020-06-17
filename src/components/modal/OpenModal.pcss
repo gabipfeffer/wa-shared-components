@@ -1,0 +1,51 @@
+@import '../../theme/variables.pcss';
+.overlay {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0, 0.5);
+}
+
+.modal {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 340px;
+  max-height: 70vh;
+  left: 50%;
+  top: 50%;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 12px;
+}
+
+@media only screen and (--mobile-viewport) {
+  .modal {
+    width: 95vw !important;
+    height: 95vh;
+    overflow-y: scroll;
+  }
+}
+
+.modal-title {
+  margin: 0 0 .5em 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.modal-content {
+  font-weight: lighter;
+}
+
+.modal-close {
+  float: right;
+  border: 0;
+  font-size: 16px;
+  color: #4e4e4e;
+  cursor: pointer;
+}

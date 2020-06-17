@@ -1804,6 +1804,57 @@
   
     /* Possiby to cull */
   }
+.src-components-modal-__OpenModal__overlay--3OYL8 {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0, 0.5);
+}
+.src-components-modal-__OpenModal__modal--1Z3jx {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 340px;
+  max-height: 70vh;
+  left: 50%;
+  top: 50%;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 12px;
+}
+@media only screen and (max-width: 39.9375em) {
+  .src-components-modal-__OpenModal__modal--1Z3jx {
+    width: 95vw !important;
+    height: 95vh;
+    overflow-y: scroll;
+  }
+}
+.src-components-modal-__OpenModal__modal-title--3y1d7 {
+  margin: 0 0 .5em 0;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.src-components-modal-__OpenModal__modal-content--1BK0H {
+  font-weight: lighter;
+}
+.src-components-modal-__OpenModal__modal-close--1nPDZ {
+  float: right;
+  border: 0;
+  font-size: 16px;
+  color: #4e4e4e;
+  cursor: pointer;
+}
+
+:root {
+    /* To keep */
+  
+    /* Possiby to cull */
+  }
 .src-components-table-__Table__error--1kKiX {
   background-color: rgba(237,28,36,0.13333);
   background-color: rgba(237,28,36,0.13333);
@@ -2049,5 +2100,58 @@
   }
 .src-components-MedalTable-__MedalTable__medalTable--xlLXn {
 
+}
+
+:root {
+    /* To keep */
+  
+    /* Possiby to cull */
+  }
+
+.src-components-Badges-__SexBadge__sex-badge--3dkEc {
+  display: inline-block;
+  margin-right: 5px;
+  text-align: center;
+}
+
+.src-components-Badges-__SexBadge__sex-badge-x--2cZ8P {
+}
+
+.src-components-Badges-__SexBadge__sex-badge-w--2_PUR {
+}
+
+.src-components-Badges-__SexBadge__sex-badge-m--2SzML {
+}
+
+:root {
+    /* To keep */
+  
+    /* Possiby to cull */
+  }
+
+.src-components-Badges-__MedalBadge__medal-badge--25xPj {
+  background-color: #cccccc;
+  border-radius: 0.8em;
+  color: #ffffff;
+  display: inline-block;
+  line-height: 1.6em;
+  margin-right: 5px;
+  text-align: center;
+  width: 1.6em;
+}
+
+.src-components-Badges-__MedalBadge__medal-badge-1--2kVfS {
+  background-color: #f0c34e;
+  background-color: #f0c34e;
+}
+
+.src-components-Badges-__MedalBadge__medal-badge-2--3cCo6 {
+  background-color: #d1d1d1;
+  background-color: #d1d1d1;
+}
+
+.src-components-Badges-__MedalBadge__medal-badge-3--2EsuC {
+  background-color: #c68a57;
+  background-color: #c68a57;
 }
 

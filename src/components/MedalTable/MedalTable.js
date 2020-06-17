@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState, useCallback, useMemo  } from "react";
 import { isEmpty } from "ramda";
 
 import Flags from "../flags";
+import OpenModal from '../modal/OpenModal';
 import Table, { Header, Body } from "../table";
+import { useModal } from 'react-modal-hook';
 import s from "./MedalTable.pcss";
 import {
   medalStyle,
@@ -11,20 +13,60 @@ import {
   silverMedalStyle,
   bronzeMedalStyle,
   natStyle,
-  titleStyle
+  titleStyle,
 } from "./MedalStyles";
+import MedalTableDetails from '../MedalTableDetails';
 
 const HEADERS = [
-  { value: "Rank", style: titleStyle  },
-  { value: "Nat", style: titleStyle  },
-  { value: "Country", style: titleStyle  },
+  { value: "Rank", style: titleStyle },
+  { value: "Nat", style: titleStyle },
+  { value: "Country", style: titleStyle },
   { value: "Gold", style: medalTitleStyle },
   { value: "Silver", style: medalTitleStyle },
   { value: "Bronze", style: medalTitleStyle },
   { value: "Total", hide: ["mobile"], style: medalTitleStyle },
 ];
 
-export function MedalTable({ data }) {
+const useModalWithData = (modalFactory) => {
+  const [modalData, setModalData] = useState(undefined);
+  const modalComponent = useMemo(() => modalFactory(modalData), [modalData]);
+  const [_showModal, hideModal] = useModal(modalComponent, [modalData]);
+
+  const showModal = useCallback((data) => {
+    setModalData(data);
+    _showModal();
+  });
+
+  return [showModal, hideModal];
+};
+
+export function MedalTable({ data, match }) {
+  const [showModal, hideModal] = useModalWithData(
+    ({ id, countryName, flag } = {}) => () => (
+      <OpenModal
+        title={<Flags withTitle={countryName} flagName={flag} />}
+        customWidth={500}
+        hideModal={hideModal}>
+        {match && <Query query={GET_MEDALS_DETAILS} variables={{ medalTableId: id }}>
+          {({ loading, error, data }) => {
+            if (error){
+              console.error(error);
+              return null;
+            }
+            const getMedalDetails = pathOr([], ['getMedalDetails'], data);
+
+            if (isEmpty(getMedalDetails)) return null;
+            return <MedalTableDetails data={getMedalDetails} match={match} />;
+          }}
+        </Query>}
+      </OpenModal>
+    )
+  );
+
+  function handleModal({ countryName, id, countryCode }) {
+    showModal({ id, countryName, flag: countryCode });
+  }
+
   function transform(cols) {
     return cols.map((col) => {
       const key = `${col.id}-${col.countryCode}`;
@@ -42,7 +84,7 @@ export function MedalTable({ data }) {
             value: <Flags flagName={col.countryCode} />,
             style: natStyle,
           },
-          { key: `${key}-countryName`, value: col.Country.CountryName },
+          { key: `${key}-countryName`, value: col.countryName },
           {
             key: `${key}-gold`,
             value: col.gold,
