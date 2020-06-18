@@ -9,6 +9,7 @@ const getHideViews = (hide) =>
     : {};
 
 function Cell({ tag, children, className, hide, theme, ...rest }) {
+  console.log(cs({ [styles[theme]]: theme }))
   const { mobile, tablet, desktop } = getHideViews(hide);
   const cssStyles = cs(styles.cell, className, {
     [styles.mobile]: mobile,

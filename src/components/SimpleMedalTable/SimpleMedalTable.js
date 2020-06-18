@@ -53,13 +53,13 @@ function renderMedalRow(rowData) {
       key={`${row.id} - ${row.countryCode}`}
       className={cs(styled.medalTableRow)}
     >
-      <Cell className={cs(styled.medalTableCell, styled.medalRank)}>
+      <Cell theme={'medalTable'}>
         {row.medalRank}
       </Cell>
-      <Cell className={cs(styled.medalTableCell, styled.countryFlag)}>
+      <Cell theme={'medalTable'}>
         {<Flags flagName={row.countryCode} />}
       </Cell>
-      <Cell className={cs(styled.medalTableCell)}>{row.countryName}</Cell>
+      <Cell theme={'medalTable'} >{row.countryName}</Cell>
       <Cell className={cs(styled.medal, styled.gold)}>{row.gold}</Cell>
       <Cell className={cs(styled.medal, styled.silver)}>{row.silver}</Cell>
       <Cell className={cs(styled.medal, styled.bronze)}>{row.bronze}</Cell>
