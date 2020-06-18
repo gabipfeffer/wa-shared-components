@@ -1,0 +1,36 @@
+html {
+  font-size: var(--font-size);
+  background-color: var(--background-colour);
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: var(--font-regular);
+  color: var(--primary-text-colour);
+  lost-utility: clearfix;
+
+  h1 {
+    font-size: 2rem;
+    margin-top: var(--page-item-margin);
+  }
+
+  a {
+    color: var(--link-colour);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--link-hover-colour);
+  }
+
+  h2 {
+    font-weight: var(--font-bold);
+    font-size: 1.125rem;
+  }
+
+  @media screen and (max-width: 320px) {
+    font-size: 0.75rem;
+    h1 {
+      font-size: 1.625rem;
+    }
+  }
+}

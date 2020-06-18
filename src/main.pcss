@@ -1,0 +1,89 @@
+@import './theme/theme.pcss';
+
+@font-face {
+  font-family: 'World Athletics Heavy';
+  src: url('./assets/fonts/WorldAthleticsHeadline.woff2') format('woff2'),
+  url('./assets/fonts/WorldAthleticsHeadline.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'World Athletics Bold';
+  src: url('./assets/fonts/WorldAthletics-Regular.woff2') format('woff2'),
+  url('./assets/fonts/WorldAthletics-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'World Athletics';
+  src: url('./assets/fonts/WorldAthletics-Bold.woff2') format('woff2'),
+  url('./assets/fonts/WorldAthletics-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  font-family: 'World Athletics', sans-serif;
+  background: url('./assets/cis_bg.jpg') no-repeat;
+  font-size: 16px;
+}
+
+html {
+  font-size: var(--font-size);
+  font-family: var(--font-family);
+  font-weight: var(--font-light);
+  background-color: var(--background-colour);
+}
+
+.app {
+  padding: 50px 10px 33px 0;
+  color: var(--primary-text-colour);
+  lost-utility: clearfix;
+  height: 100vh;
+
+  .mainSection {
+    lost-column: 6/6;
+    margin-bottom: 2em;
+
+    @media all and (--tablet-landscape-min-start) {
+      margin-top: 50px;
+    }
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-top: var(--page-item-margin);
+  }
+
+  h2 {
+    font-weight: var(--font-bold);
+    font-size: 1.375rem;
+  }
+
+  @media screen and (max-width: 320px) {
+    font-size: 0.75rem;
+    h1 {
+      font-size: 1.625rem;
+    }
+  }
+
+  @media all and (--tablet-landscape-min) {
+    padding: 0 20px 33px 200px;
+  }
+
+}
+
+
+:global {
+  h2.sectionTitle {
+    font-size: 1.75rem;
+    font-family: var(--font-family-headline), Arial;
+    margin-top: .5em;
+  }
+
+  h3.sectionSubTitle {
+    font-size: 1.125rem;
+    font-family: var(--font-family-bold), Arial;
+    position: relative;
+  }
+}

@@ -1,0 +1,124 @@
+@import './queries.pcss';
+@lost gutter 12px;
+
+:global .row {
+  lost-utility: clearfix;
+}
+
+:global .central-column{
+  lost-column: 7/12;
+
+
+
+  @media all and (min-width:1200px) {
+    lost-column: 2/3;
+  }
+}
+
+
+:global .side-column{
+  lost-column: 5/12;
+
+
+
+  @media all and (min-width: 1200px) {
+    lost-column: 1/3;
+  }
+}
+
+:global .col-content {
+  padding: 0 0.875rem;
+}
+
+:global .col-1 {
+  lost-column: 1/12
+}
+
+:global .col-2 {
+  lost-column: 2/12
+}
+
+:global .col-3 {
+  lost-column: 3/12
+}
+
+:global .col-4 {
+  lost-column: 4/12
+}
+
+:global .col-5 {
+  lost-column: 5/12
+}
+
+:global .col-6 {
+  lost-column: 6/12
+}
+
+:global .col-7 {
+  lost-column: 7/12
+}
+
+:global .col-8 {
+  lost-column: 8/12
+}
+
+:global .col-9 {
+  lost-column: 9/12
+}
+
+:global .col-10 {
+  lost-column: 10/12
+}
+
+:global .col-11 {
+  lost-column: 11/12
+}
+
+:global .col-12 {
+  lost-column: 12/12;
+}
+
+@media only screen and (--desktop-max) {
+  :global .col-lg-1 {
+    lost-column: 1/1
+  }
+}
+
+@media only screen and (--tablet-min) {
+  :global .col-md-6 {
+    lost-column: 6/12
+  }
+}
+
+@media only screen and (--desktop-min) {
+  :global .col-lg-side-1 {
+    lost-column: 12/12
+  }
+}
+
+@media only screen and (--tablet-min-start) {
+  :global .col-sm-1 {
+    lost-column: 1/1
+  }
+
+  :global .col-sm-3 {
+    lost-column: 3/12
+  }
+
+  :global .col-sm-5 {
+    lost-column: 5/12
+  }
+
+  :global .col-sm-6 {
+    lost-column: 6/12
+  }
+
+  :global .col-sm-8 {
+    lost-column: 8/12
+  }
+
+  :global .col-sm-9 {
+    lost-column: 9/12
+  }
+
+}
