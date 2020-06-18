@@ -51,7 +51,7 @@ function renderMedalRow(rowData) {
         {row.medalRank}
       </td>
       <td className={cs(styled.medalTableCell, styled.countryFlag)}>
-        {<Flags flagName={row.countryCode} />}
+        {<Flags flagName={row.countryCode}  />}
       </td>
       <td className={cs(styled.medalTableCell)}>{row.countryName}</td>
       <td className={cs(styled.medal, styled.gold)}>{row.gold}</td>
