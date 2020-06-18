@@ -6,21 +6,34 @@ import cs from "classnames";
 
 import { medalTableData } from "../../../fixtures/medalTable";
 
+const medalTitleStyle = {
+  textAlign: "center",
+};
+
+const medalRankStyle = {
+  paddingLeft: "20px",
+};
+
+const natStyle = {
+  display: "flex",
+  flexDirection: "row",
+};
+
 const headers = [
-  { value: "Rank" },
+  { value: "Rank", style: medalRankStyle },
   { value: "Nat" },
   { value: "Country" },
-  { value: "Gold" },
-  { value: "Silver" },
-  { value: "Bronze" },
-  { value: "Total" },
+  { value: "Gold", style: medalTitleStyle },
+  { value: "Silver", style: medalTitleStyle },
+  { value: "Bronze", style: medalTitleStyle },
+  { value: "Total", style: medalTitleStyle },
 ];
 
 function renderHeaders(arr) {
   return (
     <tr>
       {arr.map((el, i) => (
-        <td key={i} className={styled.medalTableHeaderCell}>
+        <td key={i} className={styled.medalTableHeaderCell} style={el.style}>
           {el.value}
         </td>
       ))}
@@ -30,9 +43,14 @@ function renderHeaders(arr) {
 
 function renderMedalRow(rowData) {
   return rowData?.map((row) => (
-    <tr key={`${row.id} - ${row.countryCode}`}>
-      <td className={cs(styled.medalTableCell)}>{row.medalRank}</td>
-      <td className={cs(styled.medalTableCell)}>
+    <tr
+      key={`${row.id} - ${row.countryCode}`}
+      className={cs(styled.medalTableRow)}
+    >
+      <td className={cs(styled.medalTableCell, styled.medalRank)}>
+        {row.medalRank}
+      </td>
+      <td className={cs(styled.medalTableCell, styled.countryFlag)}>
         {<Flags flagName={row.countryCode} />}
       </td>
       <td className={cs(styled.medalTableCell)}>{row.countryName}</td>
