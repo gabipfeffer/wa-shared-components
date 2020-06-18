@@ -67,7 +67,7 @@ function SimpleMedalTable({
   data = medalTableData,
 }) {
   return (
-    <div>
+    <div className={styled.tableContainer}>
       <div>
         <p>{eventTitle}</p>
       </div>

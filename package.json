@@ -4,7 +4,7 @@
   "description": "",
   "main": "lib/index.js",
   "scripts": {
-    "start": "start-storybook",
+    "start": "start-storybook -s ./src",
     "build": "webpack --mode production",
     "deploy": "npm version patch && git push origin && npm publish"
   },
