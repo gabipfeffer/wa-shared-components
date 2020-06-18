@@ -5,6 +5,7 @@ import Flags from "../flags";
 import cs from "classnames";
 
 import { medalTableData } from "../../../fixtures/medalTable";
+import Cell from "../TableComponents/Cell";
 
 const medalTitleStyle = {
   textAlign: "center",
@@ -20,22 +21,27 @@ const natStyle = {
 };
 
 const headers = [
-  { value: "Rank", style: medalRankStyle },
+  { value: "Rank" },
   { value: "Nat" },
   { value: "Country" },
-  { value: "Gold", style: medalTitleStyle },
-  { value: "Silver", style: medalTitleStyle },
-  { value: "Bronze", style: medalTitleStyle },
-  { value: "Total", style: medalTitleStyle },
+  { value: "Gold" },
+  { value: "Silver" },
+  { value: "Bronze" },
+  { value: "Total", hide: ["mobile"] },
 ];
 
 function renderHeaders(arr) {
   return (
     <tr>
       {arr.map((el, i) => (
-        <td key={i} className={styled.medalTableHeaderCell} style={el.style}>
+        <Cell
+          tag={"th"}
+          key={i}
+          className={styled.medalTableHeaderCell}
+          style={el.style}
+        >
           {el.value}
-        </td>
+        </Cell>
       ))}
     </tr>
   );
@@ -47,17 +53,19 @@ function renderMedalRow(rowData) {
       key={`${row.id} - ${row.countryCode}`}
       className={cs(styled.medalTableRow)}
     >
-      <td className={cs(styled.medalTableCell, styled.medalRank)}>
+      <Cell className={cs(styled.medalTableCell, styled.medalRank)}>
         {row.medalRank}
-      </td>
-      <td className={cs(styled.medalTableCell, styled.countryFlag)}>
-        {<Flags flagName={row.countryCode}  />}
-      </td>
-      <td className={cs(styled.medalTableCell)}>{row.countryName}</td>
-      <td className={cs(styled.medal, styled.gold)}>{row.gold}</td>
-      <td className={cs(styled.medal, styled.silver)}>{row.silver}</td>
-      <td className={cs(styled.medal, styled.bronze)}>{row.bronze}</td>
-      <td className={cs(styled.medal, styled.medalTableCell)}>{row.total}</td>
+      </Cell>
+      <Cell className={cs(styled.medalTableCell, styled.countryFlag)}>
+        {<Flags flagName={row.countryCode} />}
+      </Cell>
+      <Cell className={cs(styled.medalTableCell)}>{row.countryName}</Cell>
+      <Cell className={cs(styled.medal, styled.gold)}>{row.gold}</Cell>
+      <Cell className={cs(styled.medal, styled.silver)}>{row.silver}</Cell>
+      <Cell className={cs(styled.medal, styled.bronze)}>{row.bronze}</Cell>
+      <Cell className={cs(styled.medal, styled.medalTableCell)}>
+        {row.total}
+      </Cell>
     </tr>
   ));
 }
