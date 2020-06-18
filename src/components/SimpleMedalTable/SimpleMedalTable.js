@@ -2,6 +2,7 @@ import React from "react";
 
 import styled from "./SimpleMedalTable.pcss";
 import Flags from "../flags";
+import cs from "classnames";
 
 import { medalTableData } from "../../../fixtures/medalTable";
 
@@ -14,11 +15,14 @@ const headers = [
   { value: "Bronze" },
   { value: "Total" },
 ];
+
 function renderHeaders(arr) {
   return (
     <tr>
       {arr.map((el, i) => (
-        <td key={i}>{el.value}</td>
+        <td key={i} className={styled.medalTableHeaderCell}>
+          {el.value}
+        </td>
       ))}
     </tr>
   );
@@ -27,13 +31,15 @@ function renderHeaders(arr) {
 function renderMedalRow(rowData) {
   return rowData?.map((row) => (
     <tr key={`${row.id} - ${row.countryCode}`}>
-      <td>{row.medalRank}</td>
-      <td>{<Flags flagName={row.countryCode} />}</td>
-      <td>{row.countryName}</td>
-      <td>{row.gold}</td>
-      <td>{row.silver}</td>
-      <td>{row.bronze}</td>
-      <td>{row.total}</td>
+      <td className={cs(styled.medalTableCell)}>{row.medalRank}</td>
+      <td className={cs(styled.medalTableCell)}>
+        {<Flags flagName={row.countryCode} />}
+      </td>
+      <td className={cs(styled.medalTableCell)}>{row.countryName}</td>
+      <td className={cs(styled.medal, styled.gold)}>{row.gold}</td>
+      <td className={cs(styled.medal, styled.silver)}>{row.silver}</td>
+      <td className={cs(styled.medal, styled.bronze)}>{row.bronze}</td>
+      <td className={cs(styled.medal, styled.medalTableCell)}>{row.total}</td>
     </tr>
   ));
 }
@@ -47,9 +53,11 @@ function SimpleMedalTable({
       <div>
         <p>{eventTitle}</p>
       </div>
-      <table>
-        <thead>{renderHeaders(headers)}</thead>
-        <tbody>{renderMedalRow(data)}</tbody>
+      <table cellPadding={0} cellSpacing={0} className={styled.table}>
+        <thead className={styled.medalTableHeader}>
+          {renderHeaders(headers)}
+        </thead>
+        <tbody className={styled.medalTableBody}>{renderMedalRow(data)}</tbody>
       </table>
     </div>
   );
