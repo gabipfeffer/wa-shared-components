@@ -68,8 +68,8 @@ function SimpleMedalTable({
 }) {
   return (
     <div className={styled.tableContainer}>
-      <div>
-        <p>{eventTitle}</p>
+      <div className={styled.titleContainer}>
+        <h3 className={styled.title}>{eventTitle}</h3>
       </div>
       <table cellPadding={0} cellSpacing={0} className={styled.table}>
         <thead className={styled.medalTableHeader}>
