@@ -2,23 +2,10 @@ import React from "react";
 
 import styled from "./SimpleMedalTable.pcss";
 import Flags from "../flags";
-import cs from "classnames";
 
 import { medalTableData } from "../../../fixtures/medalTable";
 import Cell from "../TableComponents/Cell";
-
-const medalTitleStyle = {
-  textAlign: "center",
-};
-
-const medalRankStyle = {
-  paddingLeft: "20px",
-};
-
-const natStyle = {
-  display: "flex",
-  flexDirection: "row",
-};
+import TableBody from "../TableComponents/TableBody";
 
 const headers = [
   { value: "Rank" },
@@ -47,27 +34,24 @@ function renderHeaders(arr) {
   );
 }
 
-function renderMedalRow(rowData) {
-  return rowData?.map((row) => (
-    <tr
-      key={`${row.id} - ${row.countryCode}`}
-      className={cs(styled.medalTableRow)}
-    >
-      <Cell theme={'medalTable'}>
-        {row.medalRank}
-      </Cell>
-      <Cell theme={'medalTable'}>
-        {<Flags flagName={row.countryCode} />}
-      </Cell>
-      <Cell theme={'medalTable'} >{row.countryName}</Cell>
-      <Cell className={cs(styled.medal, styled.gold)}>{row.gold}</Cell>
-      <Cell className={cs(styled.medal, styled.silver)}>{row.silver}</Cell>
-      <Cell className={cs(styled.medal, styled.bronze)}>{row.bronze}</Cell>
-      <Cell className={cs(styled.medal, styled.medalTableCell)}>
-        {row.total}
-      </Cell>
-    </tr>
-  ));
+function transformData(data) {
+  return data.map((rowData) => {
+    const key = `${rowData.id}-${rowData.countryCode}`;
+    return {
+      data: [
+        { key: `${key}-medalRank`, value: rowData.medalRank },
+        {
+          key: `${key}-countryCode`,
+          value: <Flags flagName={rowData.countryCode} />,
+        },
+        { key: `${key}-countryName`, value: rowData.countryName },
+        { key: `${key}-gold`, value: rowData.gold },
+        { key: `${key}-silver`, value: rowData.silver },
+        { key: `${key}-bronze`, value: rowData.bronze },
+        { key: `${key}-total`, value: rowData.total },
+      ],
+    };
+  });
 }
 
 function SimpleMedalTable({
@@ -83,7 +67,7 @@ function SimpleMedalTable({
         <thead className={styled.medalTableHeader}>
           {renderHeaders(headers)}
         </thead>
-        <tbody className={styled.medalTableBody}>{renderMedalRow(data)}</tbody>
+        <TableBody rows={transformData(data)} />
       </table>
     </div>
   );

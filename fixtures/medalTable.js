@@ -140,7 +140,7 @@ export const medalTableData = [
     eventSubCategoryCode: "WJC",
   },
   {
-    iid: 6,
+    id: 6,
     UpdatedOn: "2012-11-14T10:19:17.000+00:00",
     Hash: "1BAF2E8CF214DA17DA57DE2187E1C22F",
     EventId: 920,
